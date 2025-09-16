@@ -1,0 +1,18 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+
+@media screen and (max-width: 768px) {
+  #navbar-default {
+    position: fixed;
+    left: 100%;
+    right: 5px;
+    z-index: 9999;
+    transition: left 0.3s ease;
+  }
+}
