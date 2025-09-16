@@ -678,16 +678,16 @@ video {
   height: 1.5rem;
 }
 
-.min-h-96 {
-  min-height: 24rem;
-}
-
 .min-h-screen {
   min-height: 100vh;
 }
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-11 {
+  width: 2.75rem;
 }
 
 .w-5 {
@@ -700,6 +700,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-52 {
+  width: 13rem;
 }
 
 .max-w-screen-xl {
@@ -945,10 +949,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.mix-blend-hard-light {
-  mix-blend-mode: hard-light;
 }
 
 .transition {
