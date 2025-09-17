@@ -1,50 +1,97 @@
 <div class="container mx-auto px-4">
 
-<h2
-  class="font-bold bg-gradient-to-r from-purple-600 to-blue-500 
+    <h2 class="font-bold bg-gradient-to-r from-purple-600 to-blue-500 
          bg-clip-text text-transparent m-0 pb-5
          text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
-  Register
-</h2>
+        Register
+    </h2>
 
     <div class="row mt-4">
         <form [formGroup]="registerForm" (submit)="submit()">
 
+            <!-- Name -->
             <div class="mb-6">
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                <input type="text" id="name" formControlName="name" placeholder="Your Name"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <input type="text" id="name" formControlName="name" placeholder="Your Name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+           focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+           dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                <!-- Errors -->
+                <app-form-error [control]="registerForm.get('name')"></app-form-error>
             </div>
+
+
+            <!-- Email -->
             <div class="mb-6">
                 <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                <input type="email" id="email" formControlName="email" placeholder="Your Email"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <input type="email" id="email" formControlName="email" placeholder="Your Email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+           focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+           dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                <!-- Errors -->
+                <app-form-error [control]="registerForm.get('email')"></app-form-error>
             </div>
+            <!-- Password -->
             <div class="mb-6">
                 <label for="password"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                <input type="password" id="password" formControlName="password" placeholder="Your Password"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <input type="password" id="password" formControlName="password" placeholder="Your Password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+           focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+           dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                <app-form-error [control]="registerForm.get('password')"></app-form-error>
+
             </div>
+            <!-- Re-Password -->
             <div class="mb-6">
                 <label for="rePassword"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Re-Password</label>
                 <input type="password" id="rePassword" formControlName="rePassword" placeholder="Re-Enter Your Password"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+           focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+           dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                <app-form-error [control]="registerForm.get('rePassword')"
+                    [mustMatchError]="registerForm.errors?.['mustMatch']"></app-form-error>
+
             </div>
+            <!-- Role -->
             <div class="mb-6">
                 <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
-                <select id="role" formControlName="role"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="" disabled selected>Select your role</option>
-                    <option value="user">Customer</option>
-                    <option value="organizer">Organizer</option>
-                </select>
+            <select id="role" formControlName="role"
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+           focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+           dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+           dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+    <option value="" disabled selected>Select your role</option>
+    <option value="user">Customer</option>
+    <option value="organizer">Organizer</option>
+  </select>
+                <app-form-error [control]="registerForm.get('role')"></app-form-error>
             </div>
-            <!-- <button type="submit"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button> -->
-<button type="submit" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Submit</button>
+            <button type="submit"
+                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Submit</button>
         </form>
+            <div class="">
+                <div id="alert-additional-content-2"
+                    class="p-6 mb-4 text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
+                    role="alert">
+
+                    <div class="text-sm">
+                        More info about this info danger goes here. This example text is going to
+                        run a bit longer so that
+                        you
+                        can see how spacing within an alert works with this kind of content.
+                    </div>
+
+                </div>
+            </div>
+
     </div>
 
 </div>

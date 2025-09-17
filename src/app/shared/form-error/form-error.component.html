@@ -1,0 +1,13 @@
+<div *ngIf="(control?.touched && control?.invalid) || mustMatchError"
+     class="p-3 mt-2 text-red-800 border border-red-300 rounded-lg bg-red-50 
+            dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
+     role="alert">
+  <div class="text-sm">
+    <span *ngIf="control?.errors?.['required']">This field is required.</span>
+    <span *ngIf="control?.errors?.['email']">Please enter a valid email.</span>
+    <span *ngIf="control?.errors?.['minlength']">Too short.</span>
+    <span *ngIf="control?.errors?.['maxlength']">Too long.</span>
+    <span *ngIf="control?.errors?.['pattern']">Invalid format.</span>
+    <span *ngIf="mustMatchError">Passwords must match.</span>
+  </div>
+</div>
